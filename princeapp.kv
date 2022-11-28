@@ -1,0 +1,248 @@
+#:set s dp(150)
+CanvasExample6:
+<CanvasExample6>
+    BoxLayout
+        size:root.size
+        Widget:
+            canvas:
+                Color:
+                    rgb:1,0,0
+                Rectangle:
+                    size:self.size
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgb:1,1,1
+                Rectangle:
+                    size:self.size
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgb:0,0,1
+                Rectangle:
+                    size:self.size
+<CanvasExample5>
+<CanvasExample4>
+    Button:
+        pos:100,400
+        text:"A"
+        on_press:root.on_button_a_click()
+<CanvasExample3>
+    canvas:
+        Color:
+            rgba:1,0,0,.5
+        Line:
+            circle:(200,200,100)# center_x,center_y,radius
+            width:2
+        Line:
+            ellipse:(500,300,100,200)# center_x,center_y,radius_x,radius_y
+            width:4
+        Color:
+            rgba:0,0,1,1
+        Line:
+            rectangle:(800,100,300,200)# x,y,m,n
+            width:2
+        Color:
+            rgba:0,1,0,1
+        Rectangle:
+            pos:self.center_x-s/2,self.center_y-s/2
+            size:s,s
+
+<CanvasExample1>
+    canvas:
+        Line:
+            points:(0,self.height/2,self.width,self.height/2)
+            width:2
+        Line:
+            points:(self.width/2,0,self.width/2,self.height)
+            width:2
+<CanvasExample>
+    canvas:
+        Rectangle:
+            pos:self.center_x-s/2,self.center_y-s/2
+            size:s,s
+        Ellipse:
+            pos:200,500
+            size:s,s/2
+        Line:
+            points:(0,0,self.width/4,100,self.width/2,0,self.width+3/4,100,self.width,0)
+            width:2
+<ImageExample@GridLayout>
+    cols:3
+    Image:
+        source:"pri2.jpg"
+    Image:
+        source:"pri1.jpg"
+        allow_stretch:True
+    Image:
+        source:"pri1.jpg"
+        allow_stretch:True
+        keep_ratio:False
+<WidgetsExample>
+    cols:3
+    ToggleButton:
+        text:"OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint:None,1
+        width:"100dp"
+    Button:
+        text:"Count"
+        on_press: root.on_button_click()
+        disabled: not root.count_enabled
+    Label:
+        text: root.my_text
+        font_size:"80dp"
+        color:1,.5,1,1
+    Switch:
+        id:my_switch
+        on_active: root.on_switch_active(self)
+        size_hint:None,1
+        width:"100dp"
+        active:False
+    Slider:
+        id:my_slider
+        min:0
+        max:100
+        value:50
+        #on_value: root.on_slider_value(self)
+        orientation:"vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text: str(int(my_slider.value))
+            font_size:"80dp"
+            color:1,1,.5,1
+        ProgressBar:
+            max:100
+            value:my_slider.value
+    TextInput:
+        id:my_text_input
+        size_hint:None,1
+        width:"100dp"
+        text:"Prince"
+        multiline:False
+        on_text_validate:root.on_text_validate(self)
+    Label:
+        text:"Your Name is "+my_text_input.text
+
+<PgLayout>
+    StckLayout:
+    GrdLayout:
+    AnrLayout:
+    BxLayout:
+    mainwidget:
+<ScrLayout>
+    StckLayout:
+        size_hint:1,None
+        height:12000
+
+<StckLayout>
+    #left-right top-bottom
+    orientation:"rl-tb"
+    padding:("40dp","40dp","40dp","40dp")
+    spacing:"20dp","20dp"
+    Button:
+        text:"A"
+        size_hint:.5,.5
+    Button:
+        text:"B"
+        size_hint:.5,.5
+    Button:
+        text:"C"
+        size_hint:.5,.5
+    Button:
+        text:"D"
+        size_hint:.5,.5
+    Button:
+        text:"E"
+        size_hint:.5,.5
+    Button:
+        text:"F"
+        size_hint:.5,.5
+    Button:
+        text:"G"
+        size_hint:.5,.5
+    Button:
+        text:"H"
+        size_hint:.5,.5
+    Button:
+        text:"I"
+        size_hint:.5,.5
+    Button:
+        text:"J"
+        size_hint:.5,.5
+    Button:
+        text:"K"
+        size_hint:.5,.5
+<GrdLayout>
+    # requires rows and cols
+    cols:3
+    rows:3
+    Button:
+        text:"A"
+        size_hint:.5,1
+    BxLayout:
+    Button:
+        text:"C"
+    Button:
+        text:"D"
+        size_hint:.5,1
+    Button:
+        text:"E"
+    AnrLayout:
+    Button:
+        text:"G"
+        size_hint:.5,1
+    Button:
+        text:"H"
+    Button:
+        text:"I"
+<AnrLayout>:
+    anchor_x:"center"
+    # right,left,center
+    anchor_y:"top"
+    # top,bottom,center
+    BoxLayout:
+        size_hint:.2,.2
+        Button:
+            text:"A"
+        Button:
+            text:"B"
+<BxLayout>
+    orientation:"horizontal"
+    Button:
+        text:"A"
+        size_hint:None,None
+        width:"100dp"
+        height:"68dp"
+        pos_hint:{"x":.1}
+    BoxLayout:
+        orientation:"vertical"
+        spacing:"10dp"
+        Button:
+            text:"B1"
+        Button:
+            text:"B2"
+        Button:
+            text:"B3"
+        Button:
+            text:"B4"
+    Button:
+        text:"C"
+        size_hint:None,None
+        width:"100dp"
+        height:"70dp"
+        pos_hint:{"center_x":.7}
+        # for horizontal we use top and down insted of right and left
+<mainwidget>
+    Button:
+        text: "Hello1"
+        size:"400dp","200dp"
+        pos:"100dp","200dp"  
+        color: 0,0,1,1  
+    Label:
+        text: "Hello2"
+        size:"100dp","80dp"
+        pos:"40dp","80dp"
+        color: 1,0,0,1
